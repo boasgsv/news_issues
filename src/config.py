@@ -22,8 +22,15 @@ DATASET_ID_LARGE = "jordankrishnayah/45m-headlines-from-2007-2022-10-largest-sit
 SELECTED_DATASET = 'large' 
 
 # Model Parameters
-SENTENCE_TRANSFORMER_MODEL = "all-mpnet-base-v2"
-FAISS_INDEX_DIM = 768
+SENTENCE_TRANSFORMER_MODEL = "all-mpnet-base-v2" # Default/Fallback
+CANDIDATE_MODELS = [
+    "all-mpnet-base-v2",
+    "all-MiniLM-L6-v2",
+    "all-distilroberta-v1",
+    "multi-qa-mpnet-base-dot-v1",
+    "paraphrase-MiniLM-L6-v2"
+]
+FAISS_INDEX_DIM = 768 # Note: This might vary per model! We need to handle this dynamically.
 SIMILARITY_THRESHOLD = 0.55
 TOP_K_ISSUES = 3
 
